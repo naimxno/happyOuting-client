@@ -1,0 +1,11 @@
+[
+  {
+    "_id": 1,
+    "name": "Food photography",
+    "price": 499,
+    "quantity": 12,
+    "supplier_name": "kolaat",
+    "image": "https://images.unsplash.com/photo-1493770348161-369560ae357d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+    "description": "Photography that focuses on food, or uses food as a photographic subject in its expression of a non-food related idea."
+  }
+]

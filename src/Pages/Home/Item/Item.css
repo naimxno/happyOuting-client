@@ -1,0 +1,15 @@
+.item-container {
+  display: flex;
+  padding: 20px;
+  background-color: rgb(221, 236, 253);
+  width: 90vh;
+  margin: auto;
+  border-radius: 5px;
+
+}
+
+.item-container div img {
+  width: 30vh;
+  margin-right: 20px;
+  border-radius: 5px;
+}
