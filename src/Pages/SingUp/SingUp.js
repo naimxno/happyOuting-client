@@ -1,40 +1,47 @@
 import React, { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 
-const Login = () => {
+const SingUp = () => {
   const emailRef = useRef('');
-  const passwordRef = useRef('')
+  const nameRef = useRef('');
+  const passwordRef = useRef('');
   const navigate = useNavigate();
 
   const [
-    signInWithEmailAndPassword,
+    createUserWithEmailAndPassword,
     user,
     loading,
     error,
-  ] = useSignInWithEmailAndPassword(auth);
-  const location = useLocation();
-  let from = location.stat?.pathname || '/';
+  ] = useCreateUserWithEmailAndPassword(auth);
+
+  const navigateLogIn = () => {
+    navigate('/login');
+  }
+  if (user) {
+    navigate('/')
+  }
 
   const handelSubmit = event => {
     event.preventDefault();
+    const name = nameRef.current.value;
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
-    signInWithEmailAndPassword(email, password);
+    createUserWithEmailAndPassword(email, password);
   }
 
-  if (user) {
-    navigate(from, { replace: true });
-  }
-  const navigateSingUp = () => {
-    navigate('/singUp')
-  }
   return (
     <div>
-      <h1 className='text-center pt-5'>log in</h1>
+      <h1>sing up</h1>
       <Form onSubmit={handelSubmit} className='m-5 w-75 mx-auto'>
+
+        <Form.Group className="mb-3" controlId="formBasicName">
+          <Form.Label>Your Name</Form.Label>
+          <Form.Control ref={nameRef} type="text" placeholder="Enter Name" required />
+        </Form.Group>
+
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control ref={emailRef} type="email" placeholder="Enter email" required />
@@ -52,10 +59,10 @@ const Login = () => {
           Submit
         </Button>
       </Form>
-      <p>if you not sing up <Link to='/singUp' onClick={navigateSingUp} className='pe-auto text-danger text-decoration-none'>SING UP</Link> </p>
+      <p>all ready log in <Link to='/login' onClick={navigateLogIn} className='pe-auto text-danger text-decoration-none'>LOG IN</Link> </p>
 
     </div>
   );
 };
 
-export default Login;
+export default SingUp;
