@@ -5,6 +5,8 @@ const UpdateItem = () => {
   const quantityRef = useRef();
   const { itemsId } = useParams();
   const [item, setItem] = useState({});
+
+
   useEffect(() => {
     const url = `http://localhost:5000/item/${itemsId}`
     fetch(url)
@@ -12,21 +14,29 @@ const UpdateItem = () => {
       .then(data => setItem(data))
   }, []);
 
-
-  const qunatityHandle = () => {
-    const quantity = quantityRef.current.value;
-    console.log(quantity);
-  }
-
+  // const qunatityHandle = () => {
+  //   const updateQuantity = quantityRef.current.value;
+  //   fetch(`http://localhost:5000/item/${itemsId}`, {
+  //     method: 'PUT',
+  //     headers: {
+  //       'content-type': 'application/json'
+  //     },
+  //     body: JSON.stringify(updateQuantity)
+  //   })
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       updateQuantity.target.reset();
+  //     })
+  // }
 
   return (
     <div>
       <h1 className='text-center mt-5'>NEW PRODUCTS</h1>
       <div className='w-50 mx-auto mt-5'>
         <div className="input-group mb-3">
-          <input ref={quantityRef} type="number" className="form-control" placeholder="Add Items" min={1} />
+          <input ref={quantityRef} type="number" className="form-control" placeholder="Add Quantity" min={1} />
           <div className="input-group-append">
-            <button onClick={qunatityHandle} className="btn btn-outline-secondary" type="button">Add Items</button>
+            <button className="btn btn-outline-secondary" type="button">Add Quantity</button>
           </div>
         </div>
       </div>
