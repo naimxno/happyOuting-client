@@ -14,30 +14,34 @@ const UpdateItem = () => {
       .then(data => setItem(data))
   }, []);
 
-  // const qunatityHandle = () => {
-  //   const updateQuantity = quantityRef.current.value;
-  //   fetch(`http://localhost:5000/item/${itemsId}`, {
-  //     method: 'PUT',
-  //     headers: {
-  //       'content-type': 'application/json'
-  //     },
-  //     body: JSON.stringify(updateQuantity)
-  //   })
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       updateQuantity.target.reset();
-  //     })
-  // }
+
+  const addQuantity = event => {
+    event.preventDefault();
+    const updateQuantity = event.target.quantity.value;
+
+    fetch(`http://localhost:5000/item/${itemsId}`, {
+      method: 'PUT',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(updateQuantity)
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        updateQuantity.target.reset();
+      })
+  }
 
   return (
     <div>
       <h1 className='text-center mt-5'>NEW PRODUCTS</h1>
       <div className='w-50 mx-auto mt-5'>
         <div className="input-group mb-3">
-          <input ref={quantityRef} type="number" className="form-control" placeholder="Add Quantity" min={1} />
-          <div className="input-group-append">
-            <button className="btn btn-outline-secondary" type="button">Add Quantity</button>
-          </div>
+          <form onSubmit={addQuantity} className='d-flex'>
+            <input className="form-control" type="number" name='quantity' placeholder='Update Quantity' />
+            <input type="submit" value="Update Quantity" />
+          </form>
         </div>
       </div>
       <div>

@@ -1,0 +1,37 @@
+.contact {
+  width: 80vw;
+  max-width: 600px;
+  padding: 1rem 2rem;
+  margin: 2rem auto;
+}
+
+.contact div {
+  margin-bottom: 1rem;
+}
+
+.contact h4 {
+  margin-bottom: 0.25rem;
+}
+
+.contact h2 {
+  margin-bottom: 1rem;
+}
+
+.contact input,
+.contact textarea {
+  width: 100%;
+  border-color: transparent;
+  background-color: rgb(245, 236, 236);
+  padding: 0.5rem 0.25rem;
+}
+
+.send {
+  border-color: transparent;
+  background-color: rgb(245, 236, 236);
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  letter-spacing: 0.05rem;
+  border-radius: 10px;
+  width: 100%;
+  cursor: pointer;
+}

@@ -1,9 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+
 
 const MyItems = () => {
+  const [items, setItems] = useState([]);
+
+  // const navigate = useNavigate();
+  // const navigateToManageItems = () => {
+  //   navigate('/manageItems')
+  // }
+
+  useEffect(() => {
+    fetch('http://localhost:5000/items')
+      .then(res => res.json())
+      .then(data => setItems(data))
+  }, [])
   return (
-    <div>
-      <h1>My items</h1>
+    <div className='w-50 mx-auto m-5'>
+      <ul className="list-group">
+        <li className="list-group-item active text-center">My items</li>
+        {
+          items.map(item =>
+            <li key={item._id} className="list-group-item">{item.product_name}</li>
+          )}
+      </ul>
     </div>
   );
 };
