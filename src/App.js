@@ -24,9 +24,6 @@ function App() {
             <UpdateItem></UpdateItem>
           </RequireAuth>
         }></Route>
-
-
-
         <Route path='/blog' element={<Blog></Blog>}></Route>
         <Route path='/manageItems' element={<ManageItems></ManageItems>}></Route>
         <Route path='/addItem' element={<AddItems></AddItems>}></Route>

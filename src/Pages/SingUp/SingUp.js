@@ -3,6 +3,7 @@ import { Button, Form } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 const SingUp = () => {
   const emailRef = useRef('');
@@ -60,7 +61,7 @@ const SingUp = () => {
         </Button>
       </Form>
       <p>all ready log in <Link to='/login' onClick={navigateLogIn} className='pe-auto text-danger text-decoration-none'>LOG IN</Link> </p>
-
+      <SocialLogin></SocialLogin>
     </div>
   );
 };

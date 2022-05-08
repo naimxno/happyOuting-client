@@ -29,8 +29,7 @@ const Header = () => {
                   <Nav.Link as={Link} to="/manageItems">Manage Items</Nav.Link>,
                   <Nav.Link as={Link} to="/addItem">Add Item</Nav.Link>,
                   <Nav.Link as={Link} to="/myItems">My Items</Nav.Link>,
-                  <button onClick={handleSignOut}>Sing Out</button>
-
+                  <button className='border px-3 py-1 m-1 rounded bg-dark text-white' onClick={handleSignOut}>Sing Out</button>
                 ]
                 :
                 <Nav.Link as={Link} to="/login">Login</Nav.Link>
