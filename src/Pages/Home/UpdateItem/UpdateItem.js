@@ -1,8 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 const UpdateItem = () => {
-  const quantityRef = useRef();
   const { itemsId } = useParams();
   const [item, setItem] = useState({});
 
@@ -12,14 +11,16 @@ const UpdateItem = () => {
     fetch(url)
       .then(res => res.json())
       .then(data => setItem(data))
-  }, []);
+  }, [item]);
 
 
   const addQuantity = event => {
     event.preventDefault();
-    const updateQuantity = event.target.quantity.value;
-
-    fetch(`http://localhost:5000/item/${itemsId}`, {
+    let quantity = parseInt(event.target.quantity.value);
+    quantity += item.quantity;
+    const updateQuantity = { quantity }
+    const url = `http://localhost:5000/item/${itemsId}`;
+    fetch(url, {
       method: 'PUT',
       headers: {
         'content-type': 'application/json'
@@ -28,8 +29,26 @@ const UpdateItem = () => {
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data);
-        updateQuantity.target.reset();
+        alert('Quantity added successfully!!!');
+        event.target.reset();
+      })
+  }
+
+  const deliveredItem = () => {
+    const lessQuantity = item.quantity - 1
+    const updateQuantity = { lessQuantity }
+    console.log(updateQuantity);
+    const url = `http://localhost:5000/item/${itemsId}`;
+    fetch(url, {
+      method: 'PUT',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(updateQuantity)
+    })
+      .then(res => res.json())
+      .then(data => {
+        alert('Quantity added successfully!!!');
       })
   }
 
@@ -38,7 +57,7 @@ const UpdateItem = () => {
       <h1 className='text-center mt-5'>NEW PRODUCTS</h1>
       <div className='w-50 mx-auto mt-5'>
         <div className="input-group mb-3">
-          <form onSubmit={addQuantity} className='d-flex'>
+          <form onSubmit={addQuantity} className='d-flex mx-auto'>
             <input className="form-control" type="number" name='quantity' placeholder='Update Quantity' />
             <input type="submit" value="Update Quantity" />
           </form>
@@ -55,7 +74,7 @@ const UpdateItem = () => {
             <p><small>Supplier : {item.supplier_name}</small></p>
             <p className='m-0'>Price : {item.price}$</p>
             <p className='mb-1'>Quantity : {item.quantity}</p>
-            <button className='btn btn-primary w-100 font-weight-bold'>Delivered</button>
+            <button className='btn btn-primary w-100 font-weight-bold' onClick={deliveredItem}>Delivered</button>
           </div>
         </div>
       </div>

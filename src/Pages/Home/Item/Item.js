@@ -9,6 +9,7 @@ const Item = ({ item }) => {
   const navigateToItemDetail = id => {
     navigate(`item/${id}`)
   }
+
   return (
     <div>
       <div className='item-container products-container my-3'>

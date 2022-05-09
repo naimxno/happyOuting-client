@@ -31,10 +31,10 @@ const ManageItems = () => {
   // }
 
   return (
-    <div className='m-5'>
-      <h1 className='text-center m-3'>Manage Items</h1>
+    <div className='px-3'>
+      <h1 className='text-center my-3'>Manage Items</h1>
 
-      <table className="table table-bordered table-dark">
+      <table style={{ fontSize: "14px" }} className="table table-bordered table-dark">
         <thead>
           <tr>
             <th scope="col">product</th>

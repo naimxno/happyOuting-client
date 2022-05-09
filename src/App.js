@@ -25,9 +25,21 @@ function App() {
           </RequireAuth>
         }></Route>
         <Route path='/blog' element={<Blog></Blog>}></Route>
-        <Route path='/manageItems' element={<ManageItems></ManageItems>}></Route>
-        <Route path='/addItem' element={<AddItems></AddItems>}></Route>
-        <Route path='/myItems' element={<MyItems></MyItems>}></Route>
+        <Route path='/manageItems' element={
+          <RequireAuth>
+            <ManageItems></ManageItems>
+          </RequireAuth>
+        }></Route>
+        <Route path='/addItem' element={
+          <RequireAuth>
+            <AddItems></AddItems>
+          </RequireAuth>
+        }></Route>
+        <Route path='/myItems' element={
+          <RequireAuth>
+            <MyItems></MyItems>
+          </RequireAuth>
+        }></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/singUp' element={<SingUp></SingUp>}></Route>
 
@@ -35,7 +47,7 @@ function App() {
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
-    </div>
+    </div >
   );
 }
 

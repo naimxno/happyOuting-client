@@ -3,17 +3,16 @@ import React, { useEffect, useState } from 'react';
 
 const MyItems = () => {
   const [items, setItems] = useState([]);
-
-  // const navigate = useNavigate();
-  // const navigateToManageItems = () => {
-  //   navigate('/manageItems')
-  // }
+  // const [myItems, setMyItems]=useState([]);
 
   useEffect(() => {
     fetch('http://localhost:5000/items')
       .then(res => res.json())
       .then(data => setItems(data))
   }, [])
+
+  // items.filter(item => it)
+
   return (
     <div className='w-50 mx-auto m-5'>
       <ul className="list-group">

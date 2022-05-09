@@ -23,12 +23,12 @@ const Blog = () => {
       <div className='m-5 p-2 border rounded border-secondary bg-success text-dark bg-opacity-25'>
         <h3>Q.3: Differences between sql and nosql databases.?
         </h3>
-        <p> <strong></strong> </p>
+        <p> <strong>QL databases are relational, NoSQL databases are non-relational.SQL databases use structured query language and have a predefined schema. NoSQL databases have dynamic schemas for unstructured data.SQL databases are vertically scalable, while NoSQL databases are horizontally scalable.</strong> </p>
       </div>
       <div className='m-5 p-2 border rounded border-secondary bg-success text-dark bg-opacity-25'>
-        <h3>Q.3: Differences between sql and nosql databases.?
+        <h3>Q.3: What is the purpose of jwt and how does it work?
         </h3>
-        <p> <strong></strong> </p>
+        <p> <strong>JWT is an open standard used to share security information between two parties — a client and a server. Each JWT contains encoded JSON objects, including a set of claims. JWTs are signed using a cryptographic algorithm to ensure that the claims cannot be altered after the token is issued.</strong> </p>
       </div>
     </div>
   );
