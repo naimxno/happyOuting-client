@@ -48,7 +48,7 @@ const UpdateItem = () => {
     })
       .then(res => res.json())
       .then(data => {
-        alert('Quantity added successfully!!!');
+        alert('delivered Item successfully!!!');
       })
   }
 
