@@ -7,7 +7,7 @@ const UpdateItem = () => {
 
 
   useEffect(() => {
-    const url = `http://localhost:5000/item/${itemsId}`
+    const url = `https://polar-wildwood-19795.herokuapp.com/item/${itemsId}`
     fetch(url)
       .then(res => res.json())
       .then(data => setItem(data))
@@ -19,7 +19,7 @@ const UpdateItem = () => {
     let quantity = parseInt(event.target.quantity.value);
     quantity += item.quantity;
     const updateQuantity = { quantity }
-    const url = `http://localhost:5000/item/${itemsId}`;
+    const url = `https://polar-wildwood-19795.herokuapp.com/item/${itemsId}`;
     fetch(url, {
       method: 'PUT',
       headers: {
@@ -38,7 +38,7 @@ const UpdateItem = () => {
     const lessQuantity = item.quantity - 1
     const updateQuantity = { lessQuantity }
     console.log(updateQuantity);
-    const url = `http://localhost:5000/item/${itemsId}`;
+    const url = `https://polar-wildwood-19795.herokuapp.com/item/${itemsId}`;
     fetch(url, {
       method: 'PUT',
       headers: {

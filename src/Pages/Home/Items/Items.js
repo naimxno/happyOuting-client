@@ -13,7 +13,7 @@ const Items = () => {
   }
 
   useEffect(() => {
-    fetch('http://localhost:5000/items')
+    fetch('https://polar-wildwood-19795.herokuapp.com/items')
       .then(res => res.json())
       .then(data => setItems(data.slice(0, 6)))
   }, [])

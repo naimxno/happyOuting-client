@@ -6,7 +6,7 @@ const ManageItems = () => {
   // const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('http://localhost:5000/items')
+    fetch('https://polar-wildwood-19795.herokuapp.com/items')
       .then(res => res.json())
       .then(data => setItems(data))
   }, [])
@@ -14,7 +14,7 @@ const ManageItems = () => {
   const handleDelete = id => {
     const confirm = window.confirm('Are you sure?')
     if (confirm) {
-      const url = `http://localhost:5000/item/${id}`;
+      const url = `https://polar-wildwood-19795.herokuapp.com/item/${id}`;
       fetch(url, {
         method: 'DELETE'
       })

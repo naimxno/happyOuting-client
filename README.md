@@ -1,25 +1,19 @@
-# Getting Started with Create React App
+# happyOuting
+live site Link [happyOuting]https://infocus-c94eb.web.app/
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## My website is about photography. This website have six services about photography.
 
-## Available Scripts
+## Useing this website people will get benefets.
 
-In the project directory, you can run:
+## I have hosted this website in google firebase.
 
-### `npm start`
+## I have used google firebase for Authentication.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## My website has a unique name.This website is multi page website.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## The list of technologies (frameworks, libraries) used in my  project is Bootstrap and reactjs.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
